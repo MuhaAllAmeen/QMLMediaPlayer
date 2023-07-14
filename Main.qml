@@ -123,7 +123,7 @@ Window { //Main Window
             width: controls-controls/2
             height: 5
             color:"white"
-            anchors.left: playpause.right
+            anchors.left: stop.right
             anchors.leftMargin: 10
             anchors.rightMargin: 10
             anchors.right: openFile.left
@@ -207,6 +207,23 @@ Window { //Main Window
             MouseArea{
                 anchors.fill: parent
                 onPressed: mediaPlayer.playing ? mediaPlayer.pause(): mediaPlayer.play()
+            }
+        }
+
+        Image {
+            id: stop
+            source: "https://www.kindpng.com/picc/m/7-73188_stop-frame-video-music-stop-button-icon-png.png"
+            width: 30
+            height: 30
+            anchors.left: playpause.right
+            anchors.leftMargin: 5
+            anchors.verticalCenter: controls.verticalCenter
+            MouseArea{
+                anchors.fill: parent
+                onClicked: {mediaPlayer.stop()
+                    mediaPlayer.setPosition((mediaPlayer.position / seekLine.width) * mediaPlayer.duration)
+                }
+
             }
         }
 
