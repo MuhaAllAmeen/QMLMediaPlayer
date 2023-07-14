@@ -221,7 +221,6 @@ Window { //Main Window
             MouseArea{
                 anchors.fill: parent
                 onClicked: {mediaPlayer.stop()
-                    mediaPlayer.setPosition((mediaPlayer.position / seekLine.width) * mediaPlayer.duration)
                 }
 
             }
